@@ -1,0 +1,265 @@
+﻿{
+  "configurations": [
+    {
+      "name": "WSL-GCC-Debug",
+      "generator": "Ninja",
+      "configurationType": "Debug",
+      "cmakeExecutable": "cmake",
+      "remoteCopySourcesExclusionList": [ ".vs", ".git", "out" ],
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "linux_x64" ],
+      "remoteMachineName": "-1610754714;localhost (username=jpm, port=22, authentication=Password)",
+      "remoteCMakeListsRoot": "$HOME/.vs/${projectDirName}/${workspaceHash}/src",
+      "remoteBuildRoot": "$HOME/.vs/${projectDirName}/${workspaceHash}/out/build/${name}",
+      "remoteInstallRoot": "$HOME/.vs/${projectDirName}/${workspaceHash}/out/install/${name}",
+      "remoteCopySources": true,
+      "rsyncCommandArgs": "-t --delete --delete-excluded",
+      "remoteCopyBuildOutput": false,
+      "remoteCopySourcesMethod": "rsync",
+      "addressSanitizerRuntimeFlags": "detect_leaks=0",
+      "variables": [
+        {
+          "name": "BUILD_NETWORKS",
+          "value": "True",
+          "type": "BOOL"
+        },
+        {
+          "name": "BUILD_TESTS",
+          "value": "True",
+          "type": "BOOL"
+        }
+      ],
+      "intelliSenseMode": "linux-gcc-x64"
+    },
+    {
+      "name": "WSL-Clang-Debug",
+      "generator": "Ninja",
+      "configurationType": "Debug",
+      "cmakeExecutable": "$HOME/cmake_clang.sh",
+      "remoteCopySourcesExclusionList": [ ".vs", ".git", "out" ],
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "linux_clang_x64" ],
+      "remoteMachineName": "-1610754714;localhost (username=jpm, port=22, authentication=Password)",
+      "remoteCMakeListsRoot": "$HOME/.vs/${projectDirName}/${workspaceHash}/src",
+      "remoteBuildRoot": "$HOME/.vs/${projectDirName}/${workspaceHash}/out/build/${name}",
+      "remoteInstallRoot": "$HOME/.vs/${projectDirName}/${workspaceHash}/out/install/${name}",
+      "remoteCopySources": true,
+      "rsyncCommandArgs": "-t --delete --delete-excluded",
+      "remoteCopyBuildOutput": false,
+      "remoteCopySourcesMethod": "rsync",
+      "addressSanitizerRuntimeFlags": "detect_leaks=0",
+      "variables": [
+        {
+          "name": "BUILD_NETWORKS",
+          "value": "True",
+          "type": "BOOL"
+        },
+        {
+          "name": "BUILD_TESTS",
+          "value": "True",
+          "type": "BOOL"
+        }
+      ]
+    },
+    {
+      "name": "WSL-GCC-Release",
+      "generator": "Ninja",
+      "configurationType": "Release",
+      "cmakeExecutable": "cmake",
+      "remoteCopySourcesExclusionList": [ ".vs", ".git", "out" ],
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "linux_x64" ],
+      "intelliSenseMode": "linux-gcc-x64",
+      "remoteMachineName": "-1610754714;localhost (username=jpm, port=22, authentication=Password)",
+      "remoteCMakeListsRoot": "$HOME/.vs/${projectDirName}/${workspaceHash}/src",
+      "remoteBuildRoot": "$HOME/.vs/${projectDirName}/${workspaceHash}/out/build/${name}",
+      "remoteInstallRoot": "$HOME/.vs/${projectDirName}/${workspaceHash}/out/install/${name}",
+      "remoteCopySources": true,
+      "rsyncCommandArgs": "-t --delete --delete-excluded",
+      "remoteCopyBuildOutput": false,
+      "remoteCopySourcesMethod": "rsync",
+      "addressSanitizerRuntimeFlags": "detect_leaks=0",
+      "variables": [
+        {
+          "name": "BUILD_NETWORKS",
+          "value": "True",
+          "type": "BOOL"
+        },
+        {
+          "name": "BUILD_TESTS",
+          "value": "True",
+          "type": "BOOL"
+        }
+      ]
+    },
+    {
+      "name": "WSL-Clang-Release",
+      "generator": "Ninja",
+      "configurationType": "Release",
+      "cmakeExecutable": "$HOME/cmake_clang.sh",
+      "remoteCopySourcesExclusionList": [ ".vs", ".git", "out" ],
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "linux_clang_x64" ],
+      "remoteMachineName": "-1610754714;localhost (username=jpm, port=22, authentication=Password)",
+      "remoteCMakeListsRoot": "$HOME/.vs/${projectDirName}/${workspaceHash}/src",
+      "remoteBuildRoot": "$HOME/.vs/${projectDirName}/${workspaceHash}/out/build/${name}",
+      "remoteInstallRoot": "$HOME/.vs/${projectDirName}/${workspaceHash}/out/install/${name}",
+      "remoteCopySources": true,
+      "rsyncCommandArgs": "-t --delete --delete-excluded",
+      "remoteCopyBuildOutput": false,
+      "remoteCopySourcesMethod": "rsync",
+      "addressSanitizerRuntimeFlags": "detect_leaks=0",
+      "variables": [
+        {
+          "name": "BUILD_NETWORKS",
+          "value": "True",
+          "type": "BOOL"
+        },
+        {
+          "name": "BUILD_TESTS",
+          "value": "True",
+          "type": "BOOL"
+        }
+      ]
+    },
+    {
+      "name": "MBP-GCC-Debug",
+      "generator": "Ninja",
+      "configurationType": "Debug",
+      "cmakeExecutable": "cmake",
+      "remoteCopySourcesExclusionList": [ ".vs", ".git", "out" ],
+      "cmakeCommandArgs": "-DCMAKE_PREFIX_PATH=\"/home/jpmuench/.vs/emp-tool/4dd768e6-4efe-4d92-865d-8a9a358d21e3/out/install/${name};/home/jpmuench/.vs/emp-ot/7e75f398-23f6-4db4-931f-17dea8ecda13/out/install/${name}\"",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "linux_x64" ],
+      "variables": [
+        {
+          "name": "BUILD_NETWORKS",
+          "value": "True",
+          "type": "BOOL"
+        },
+        {
+          "name": "BUILD_TESTS",
+          "value": "True",
+          "type": "BOOL"
+        }
+      ],
+      "intelliSenseMode": "linux-gcc-x64",
+      "remoteMachineName": "949468212;netcup.muench-ger.net (username=jpmuench, port=1608, authentication=PrivateKey)",
+      "remoteCMakeListsRoot": "$HOME/.vs/${projectDirName}/${workspaceHash}/src",
+      "remoteBuildRoot": "$HOME/.vs/${projectDirName}/${workspaceHash}/out/build/${name}",
+      "remoteInstallRoot": "$HOME/.vs/${projectDirName}/${workspaceHash}/out/install/${name}",
+      "remoteCopySources": true,
+      "rsyncCommandArgs": "-t",
+      "remoteCopyBuildOutput": false,
+      "remoteCopySourcesMethod": "rsync",
+      "addressSanitizerRuntimeFlags": "detect_leaks=0"
+    },
+    {
+      "name": "MBP-Clang-Debug",
+      "generator": "Ninja",
+      "configurationType": "Debug",
+      "cmakeExecutable": "$HOME/cmake_clang.sh",
+      "remoteCopySourcesExclusionList": [ ".vs", ".git", "out" ],
+      "cmakeCommandArgs": "-DCMAKE_PREFIX_PATH=\"/home/jpmuench/.vs/emp-tool/4dd768e6-4efe-4d92-865d-8a9a358d21e3/out/install/${name};/home/jpmuench/.vs/emp-ot/7e75f398-23f6-4db4-931f-17dea8ecda13/out/install/${name}\"",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "linux_clang_x64" ],
+      "variables": [
+        {
+          "name": "BUILD_NETWORKS",
+          "value": "True",
+          "type": "BOOL"
+        },
+        {
+          "name": "BUILD_TESTS",
+          "value": "True",
+          "type": "BOOL"
+        }
+      ],
+      "remoteMachineName": "949468212;netcup.muench-ger.net (username=jpmuench, port=1608, authentication=PrivateKey)",
+      "remoteCMakeListsRoot": "$HOME/.vs/${projectDirName}/${workspaceHash}/src",
+      "remoteBuildRoot": "$HOME/.vs/${projectDirName}/${workspaceHash}/out/build/${name}",
+      "remoteInstallRoot": "$HOME/.vs/${projectDirName}/${workspaceHash}/out/install/${name}",
+      "remoteCopySources": true,
+      "rsyncCommandArgs": "-t",
+      "remoteCopyBuildOutput": false,
+      "remoteCopySourcesMethod": "rsync",
+      "addressSanitizerRuntimeFlags": "detect_leaks=0",
+      "addressSanitizerEnabled": false
+    },
+    {
+      "name": "MBP-GCC-Release",
+      "generator": "Ninja",
+      "configurationType": "Release",
+      "cmakeExecutable": "cmake",
+      "remoteCopySourcesExclusionList": [ ".vs", ".git", "out" ],
+      "cmakeCommandArgs": "-DCMAKE_PREFIX_PATH=\"/home/jpmuench/.vs/emp-tool/4dd768e6-4efe-4d92-865d-8a9a358d21e3/out/install/${name};/home/jpmuench/.vs/emp-ot/7e75f398-23f6-4db4-931f-17dea8ecda13/out/install/${name}\"",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "linux_x64" ],
+      "variables": [
+        {
+          "name": "BUILD_NETWORKS",
+          "value": "True",
+          "type": "BOOL"
+        },
+        {
+          "name": "BUILD_TESTS",
+          "value": "True",
+          "type": "BOOL"
+        }
+      ],
+      "intelliSenseMode": "linux-gcc-x64",
+      "remoteMachineName": "949468212;netcup.muench-ger.net (username=jpmuench, port=1608, authentication=PrivateKey)",
+      "remoteCMakeListsRoot": "$HOME/.vs/${projectDirName}/${workspaceHash}/src",
+      "remoteBuildRoot": "$HOME/.vs/${projectDirName}/${workspaceHash}/out/build/${name}",
+      "remoteInstallRoot": "$HOME/.vs/${projectDirName}/${workspaceHash}/out/install/${name}",
+      "remoteCopySources": true,
+      "rsyncCommandArgs": "-t",
+      "remoteCopyBuildOutput": false,
+      "remoteCopySourcesMethod": "rsync",
+      "addressSanitizerRuntimeFlags": "detect_leaks=0"
+    },
+    {
+      "name": "MBP-Clang-Release",
+      "generator": "Ninja",
+      "configurationType": "Release",
+      "cmakeExecutable": "$HOME/cmake_clang.sh",
+      "remoteCopySourcesExclusionList": [ ".vs", ".git", "out" ],
+      "cmakeCommandArgs": "-DCMAKE_PREFIX_PATH=\"/home/jpmuench/.vs/emp-tool/4dd768e6-4efe-4d92-865d-8a9a358d21e3/out/install/${name};/home/jpmuench/.vs/emp-ot/7e75f398-23f6-4db4-931f-17dea8ecda13/out/install/${name}\"",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "linux_clang_x64" ],
+      "variables": [
+        {
+          "name": "BUILD_NETWORKS",
+          "value": "True",
+          "type": "BOOL"
+        },
+        {
+          "name": "BUILD_TESTS",
+          "value": "True",
+          "type": "BOOL"
+        }
+      ],
+      "remoteMachineName": "949468212;netcup.muench-ger.net (username=jpmuench, port=1608, authentication=PrivateKey)",
+      "remoteCMakeListsRoot": "$HOME/.vs/${projectDirName}/${workspaceHash}/src",
+      "remoteBuildRoot": "$HOME/.vs/${projectDirName}/${workspaceHash}/out/build/${name}",
+      "remoteInstallRoot": "$HOME/.vs/${projectDirName}/${workspaceHash}/out/install/${name}",
+      "remoteCopySources": true,
+      "rsyncCommandArgs": "-t ",
+      "remoteCopyBuildOutput": false,
+      "remoteCopySourcesMethod": "rsync",
+      "addressSanitizerRuntimeFlags": "detect_leaks=0"
+    }
+  ]
+}

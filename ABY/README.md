@@ -1,0 +1,19 @@
+# ABY
+
+You may read the original readme with build and usage instructions as [`README-ORIGINAL.md`](README-ORIGINAL.md)
+
+## Main Changes
+
+|Keywords|File|Function|Summary|
+|-|-|-|-|
+|Configuration|[`ABYconstants.h`](src/abycore/ABY_utils/ABYconstants.h)|`YAO_AES_IS_*`, `ENABLE_VAES`, `ENABLE_HYBRID`|These defines control whether VAES will be used and what security assumption is used for AES.|
+|Dynamic Batch Identification|[`yaoclientsharing.cpp`](src/abycore/sharing/yaoclientsharing.cpp), [`yaoserversharing.cpp`](src/abycore/sharing/yaoserversharing.cpp) |`YaoClientSharing::EvaluateLocalOperations()`, `YaoServerSharing::PrecomputeGC()`|Queues up non-free gates and processes them when they are referenced.|
+|Non-Free XOR Infrastructure|[`yaoclientsharing.cpp`](src/abycore/sharing/yaoclientsharing.cpp), [`yaoserversharing.cpp`](src/abycore/sharing/yaoserversharing.cpp), [`abycircuit.h`](src/abycore/circuit/abycircuit.h) |`YaoServerSharing::PrepareSetupPhase()`, `... ::InitServer()`, `... ::CreateAndSendGarbledCircuit()`, `YaoClientSharing::PrepareSetupPhase()`, `... ::ReceiveGarbledCircuitAndOutputShares()`,  `... ::InitClient()`, `yao_fields`| Adds infrastructure for counting and sending XOR table entries and independent wire keys.|
+|PRF-Based Garbling Glue|[`prf_client.cpp`](src/abycore/sharing/yao_variants/prf_client.cpp), [`prf_server.cpp`](src/abycore/sharing/yao_variants/prf_server.cpp)|all functions in these files|These classes derive from their respective `Yao*Sharing` classes to invoke the appropriate backend. They also handle the different key-slot invariant.|
+|PRF-Based Garbling Processing (AESNI)|[`aesni_prf_processors.cpp`](src/abycore/sharing/aes_processors/aesni_prf_processors.cpp)| all functions in this file|The boilerplate for the invocations and the actual garbling / evaluation algorithms for AES-NI.|
+|PRF-Based Garbling Processing (VAES)|[`vaes_prf_processors.cpp`](src/abycore/sharing/aes_processors/vaes_prf_processors.cpp)|all functions in this file|The boilerplate for the invocations and the actual garbling / evaluation algorithms for VAES.|
+|PRP-Based Garbling Glue|[`halfgates_prp_client.cpp`](src/abycore/sharing/yao_variants/halfgates_prp_client.cpp), [`halfgates_prp_server.cpp`](src/abycore/sharing/yao_variants/halfgates_prp_server.cpp)|all functions in these files|These files implement the main logic to run halfgates-based garbling.|
+|Circular-Based Garbling Glue|[`halfgates_circ_client.cpp`](src/abycore/sharing/yao_variants/halfgates_circ_client.cpp), [`halfgates_circ_client.cpp`](src/abycore/sharing/yao_variants/halfgates_circ_client.cpp)|all functions in these files|These files implement the minimal changes needed to the baseline halfgates garbler logic.|
+|Multi-Instance-Based Garbling Glue|[`halfgates_mi_client.cpp`](src/abycore/sharing/yao_variants/halfgates_mi_client.cpp), [`halfgates_mi_server.cpp`](src/abycore/sharing/yao_variants/halfgates_mi_server.cpp)|all functions in these files|These files implement the minimal changes needed to the baseline halfgates garbler logic.|
+|Halfgates-Based Garbling Processing (AESNI)|[`aesni_halfgate_processors.cpp`](src/abycore/sharing/aes_processors/aesni_halfgate_processors.cpp), [`aesni_helpers.cpp`](src/abycore/sharing/aes_processors/aesni_helpers.h)|all functions in these files| The actual processing of the garbling / evaluation operations for halfgates-based schemes using AES-NI.|
+|Halfgates-Based Garbling Processing (VAES)|[`vaes_halfgate_processors.cpp`](src/abycore/sharing/aes_processors/vaes_halfgate_processors.cpp), [`vaes_helpers.cpp`](src/abycore/sharing/aes_processors/vaes_helpers.h)|all functions in these files| The actual processing of the garbling / evaluation operations for halfgates-based schemes using VAES.|
