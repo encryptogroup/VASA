@@ -6,7 +6,7 @@ You may read the original readme with build and usage instructions as [`README-O
 
 |Keywords|File|Function|Summary|
 |-|-|-|-|
-|Configuration|[`ABYconstants.h`](src/abycore/ABY_utils/ABYconstants.h)|`YAO_AES_IS_*`, `ENABLE_VAES`, `ENABLE_HYBRID`|These defines control whether VAES will be used and what security assumption is used for AES.|
+|Configuration|[`ABYconstants.h`](src/abycore/ABY_utils/ABYconstants.h)|`YAO_AES_IS_*`, `ENABLE_VAES`, `ENABLE_HYBRID`|These define control whether VAES will be used and what security assumption is used for AES.|
 |Dynamic Batch Identification|[`yaoclientsharing.cpp`](src/abycore/sharing/yaoclientsharing.cpp), [`yaoserversharing.cpp`](src/abycore/sharing/yaoserversharing.cpp) |`YaoClientSharing::EvaluateLocalOperations()`, `YaoServerSharing::PrecomputeGC()`|Queues up non-free gates and processes them when they are referenced.|
 |Non-Free XOR Infrastructure|[`yaoclientsharing.cpp`](src/abycore/sharing/yaoclientsharing.cpp), [`yaoserversharing.cpp`](src/abycore/sharing/yaoserversharing.cpp), [`abycircuit.h`](src/abycore/circuit/abycircuit.h) |`YaoServerSharing::PrepareSetupPhase()`, `... ::InitServer()`, `... ::CreateAndSendGarbledCircuit()`, `YaoClientSharing::PrepareSetupPhase()`, `... ::ReceiveGarbledCircuitAndOutputShares()`,  `... ::InitClient()`, `yao_fields`| Adds infrastructure for counting and sending XOR table entries and independent wire keys.|
 |PRF-Based Garbling Glue|[`prf_client.cpp`](src/abycore/sharing/yao_variants/prf_client.cpp), [`prf_server.cpp`](src/abycore/sharing/yao_variants/prf_server.cpp)|all functions in these files|These classes derive from their respective `Yao*Sharing` classes to invoke the appropriate backend. They also handle the different key-slot invariant.|
