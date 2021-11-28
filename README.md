@@ -24,3 +24,13 @@ The suggested way to work with this repository is as follows:
 |EMP-AGMPC|`emp/emp-agmpc/`|[`emp/emp-agmpc/README.md`](emp/emp-agmpc/README.md)|[`7d30b53630e2b25469811ab014e4d4a26697a89c`](https://github.com/emp-toolkit/emp-agmpc/tree/7d30b53630e2b25469811ab014e4d4a26697a89c)|[MIT](emp/emp-agmpc/LICENSE)|Xiao Wang|
 
 All code changes are licensed under the same license as the library originally had.
+
+## Citation
+```latex
+@inproceedings{MSY21,
+  title={{VASA: Vector AES Instructions for Security Applications}},
+  author={Münch, Jean-Pierre and Schneider, Thomas and Yalame, Hossein},
+  booktitle={ACSAC},
+  year={2021}
+}
+```
