@@ -1,6 +1,6 @@
 # Vector AES Instructions for Security Applications
 
-This is the supporting code repository for the paper "VASA: Vector AES Instructions for Security Applications" to appear and be presented at [ACSAC'21](https://www.acsac.org/) by Jean-Pierre Münch, Hossein Yalame, and Thomas Schneider.
+This is the supporting code repository for the paper ["VASA: Vector AES Instructions for Security Applications"](https://ia.cr/2021/1493) to appear and be presented at [ACSAC'21](https://www.openconf.org/acsac2021/modules/request.php?module=oc_program&action=program.php&p=program) by Jean-Pierre Münch, [Hossein Yalame](https://encrypto.de/yalame), and [Thomas Schneider](https://encrypto.de/schneider).
 
 The intention behind this code and repository is primarily to show how to use VAES and give concrete examples of how we used it, so you can adapt it to your library / framework / application.
 
