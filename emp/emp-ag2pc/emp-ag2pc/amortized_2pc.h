@@ -237,6 +237,9 @@ public:
 			int indices[GARBLING_BATCH_SIZE];
 			size_t collected_indices = 0;
 			ands = 0;
+			// no inter-gate dependencies here
+			// so we just factored GarblingHashing() out of here and the _thread() variant
+			// and added batched processing
 			for (int i = 0; i < cf->num_gate; ++i) {
 				if (cf->gates[4 * i + 3] == AND_GATE) {
 					indices[collected_indices] = i;
@@ -398,6 +401,9 @@ public:
 		ands = 0;
 		int indices[GARBLING_BATCH_SIZE];
 		size_t collected_indices = 0;
+		// no inter-gate dependencies here
+		// so we just factored GarblingHashing() out of here and the _st() variant
+		// and added batched processing
 		for (int i = 0; i < cf->num_gate; ++i) {
 			if (cf->gates[4 * i + 3] == AND_GATE) {
 				indices[collected_indices] = i;
@@ -486,6 +492,8 @@ public:
 			int queued_gate_ids[ONLINE_BATCH_SIZE];
 			size_t queue_size = 0;
 			for (int i = 0; i < cf->num_gate; ++i) {
+				// this first trapping part is standard dynamic batching
+				// which then leads to batches for EvaluateANDGate()
 				bool trap = queue_size == ONLINE_BATCH_SIZE;
 				int left_in = cf->gates[4 * i];
 				for (size_t t = 0; t < queue_size; ++t)
@@ -545,6 +553,8 @@ public:
 		delete[] mask_input;
 	}
 
+	// This is just a straight looping on the input of the previous Hash() implementation
+	// and then having a bigger PRP invocation
 	__attribute__((always_inline))
 	void Hash(block H[GARBLING_BATCH_SIZE][4][2], const block a[GARBLING_BATCH_SIZE], const block b[GARBLING_BATCH_SIZE], int i[GARBLING_BATCH_SIZE], size_t num_gates) {
 		for (size_t bidx = 0; bidx < num_gates; ++bidx) {
@@ -568,6 +578,8 @@ public:
 		prp.permute_block((block *)H, 8* num_gates);
 	}
 
+	// This is just a straight looping on the input of the previous Hash() implementation
+	// and then having a bigger PRP invocation
 	__attribute__((always_inline))
 	void Hash(block H[ONLINE_BATCH_SIZE][2], block a[ONLINE_BATCH_SIZE], block b[ONLINE_BATCH_SIZE], int i[ONLINE_BATCH_SIZE], int row[ONLINE_BATCH_SIZE], size_t num_entries) {
 		for (size_t ii = 0; ii < num_entries; ++ii) {
@@ -592,6 +604,10 @@ public:
 		else return "F";
 	}
 private:
+	// this is mostly factored out with function_dependent_thread() and _st()
+	// this uses indices instead of the actual gates so we know where to look and can just drop-in simulate
+	// the previous environment
+	// the main focus here should be the AES processing in the batched-up Hash function
 	__attribute__((always_inline))
 	void GarblingHashing(int indices[GARBLING_BATCH_SIZE], int& ands, size_t num_gates, const int e, T* io) {
 		block H[GARBLING_BATCH_SIZE][4][2];
@@ -652,6 +668,8 @@ private:
 		}
 	}
 
+	// this is an extract from the online() function using indices as input as else we wouldn't know what to process
+	// the main focus here should be the AES processing in the batched-up Hash function
 	__attribute__((always_inline))
 	void EvaluateANDGates(uint8_t* mask_input,int indices[ONLINE_BATCH_SIZE], size_t num_gates, int& ands) {
 		int mask_indices[ONLINE_BATCH_SIZE];
