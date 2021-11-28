@@ -4,4 +4,7 @@ You may read the original readme with build and usage instructions as [`README-O
 
 ## Main Changes
 
-TBA
+|Keywords|File|Function|Summary|
+|-|-|-|-|
+|Function-dependent Batching|[`amortized_2pc.h`](emp-ag2pc/amortized_2pc.h)|`AmortizedC2PC::function_dependent_st()`, `AmortizedC2PC::function_dependent_thread()`, `AmortizedC2PC::GarblingHashing()`|Changed to use batched processing using `GarblingHashing` around batched `Hash` (no dependencies for dynamic batching)|
+|Online Batching|[`amortized_2pc.h`](emp-ag2pc/amortized_2pc.h)|`AmortizedC2PC::online()`, `AmortizedC2PC::EvaluateANDGates()`| Changed to use dynamic batching with early evaluation around `Hash`.|
