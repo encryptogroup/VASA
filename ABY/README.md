@@ -1,6 +1,6 @@
 # ABY
 
-You may read the original readme with build and usage instructions as [`README-ORIGINAL.md`](README-ORIGINAL.md)
+You may read the original readme with build and usage instructions as [`README-ORIGINAL.md`](https://github.com/encryptogroup/VASA/blob/master/ABY/README-Original.md)
 
 ## Main Changes
 
